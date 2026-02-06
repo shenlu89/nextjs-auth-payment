@@ -1,9 +1,12 @@
 "use client";
 import { useSession, signIn, signOut } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { Loader2 } from "lucide-react";
 
 export default function Home() {
   const { data: session, isPending, error } = useSession();
+  const [isSigningIn, setIsSigningIn] = useState(false);
 
   if (isPending) return <div>Loading...</div>;
 
@@ -25,14 +28,22 @@ export default function Home() {
         </div>
       ) : (
         <Button
+          disabled={isSigningIn}
           onClick={async () => {
-            await signIn.social({
-              provider: "github",
-              callbackURL: "/",
-            });
+            setIsSigningIn(true);
+            try {
+              await signIn.social({
+                provider: "github",
+                callbackURL: "/",
+              });
+            } catch (error) {
+              console.error(error);
+              setIsSigningIn(false);
+            }
           }}
         >
-          Sign in with GitHub
+          {isSigningIn && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+          {isSigningIn ? "Signing in..." : "Sign in with GitHub"}
         </Button>
       )}
     </div>
