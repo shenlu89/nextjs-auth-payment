@@ -6,9 +6,7 @@ import * as schema from "../db/schema/auth-schema";
 export const auth = betterAuth({
     database: drizzleAdapter(db, {
         provider: "pg",
-        schema: {
-            ...schema
-        }
+        schema
     }),
     emailAndPassword: {
         enabled: true,
@@ -19,4 +17,11 @@ export const auth = betterAuth({
             clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
         },
     },
+    // related with session table
+    // session: {
+    //     cookieCache: {
+    //         enabled: true,
+    //         maxAge: 5 * 60 // Cache duration in seconds
+    //     },
+    // },
 });
