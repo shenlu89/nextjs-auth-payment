@@ -2,6 +2,8 @@ import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "../db/db";
 import * as schema from "../db/schema/auth-schema";
+import { headers } from "next/headers"
+import { cache } from "react"
 
 export const auth = betterAuth({
     database: drizzleAdapter(db, {
@@ -25,3 +27,9 @@ export const auth = betterAuth({
     //     },
     // },
 });
+
+export const getServerSession = cache(async () => {
+    return auth.api.getSession({
+        headers: await headers(),
+    })
+})
