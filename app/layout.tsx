@@ -1,6 +1,6 @@
 import "./globals.css";
 import { type ReactNode, Suspense } from "react";
-import Account from "@/components/account";
+import Header from "@/components/header";
 import { Outfit, Roboto_Mono } from "next/font/google";
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         suppressHydrationWarning
       >
         <Suspense fallback={null}>
-          <Account />
+          <Header />
           {children}
         </Suspense>
       </body>
