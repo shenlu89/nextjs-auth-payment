@@ -2,6 +2,7 @@ import "./globals.css";
 import { type ReactNode, Suspense } from "react";
 import Header from "@/components/header";
 import { Outfit, Roboto_Mono } from "next/font/google";
+import Footer from "@/components/footer";
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Suspense fallback={null}>
           <Header />
           {children}
+          <Footer />
         </Suspense>
       </body>
     </html>
