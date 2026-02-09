@@ -16,7 +16,7 @@ export default async function Header() {
         <Link href={"/"} className="flex space-x-1 items-center justify-center">
           <Logo className="md:flex hidden" />
           <span className="text-xl font-extrabold tracking-tight self-center pr-8 md:flex hidden">
-            Open SaaS Kit
+            OpenSaaSKit
           </span>
         </Link>
         <NavLinks /> {/* Use the new component here */}
