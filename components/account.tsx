@@ -1,4 +1,13 @@
+import { lorelei } from "@dicebear/collection";
+import { createAvatar } from "@dicebear/core";
+import { getSessionCookie } from "better-auth/cookies";
+import { ArrowUpRight, FileText } from "lucide-react";
+import { headers } from "next/headers";
+import { BsStars } from "react-icons/bs";
+import { LuUser } from "react-icons/lu";
 import Link from "@/components/custom-link";
+import LogoutButton from "@/components/logout-button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,16 +16,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { LuUser } from "react-icons/lu";
-import { BsStars } from "react-icons/bs";
-import { FileText, ArrowUpRight } from "lucide-react";
-import { createAvatar } from "@dicebear/core";
-import { lorelei } from "@dicebear/collection";
 import { getServerSession } from "@/lib/auth";
-import { getSessionCookie } from "better-auth/cookies";
-import { headers } from "next/headers";
-import LogoutButton from "@/components/logout-button";
 
 export default async function Account() {
   const hasSessionCookie = getSessionCookie(new Headers(await headers()));
@@ -46,7 +46,10 @@ export default async function Account() {
         </Avatar>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="end" className="w-56 data-[state=open]:!animate-none data-[state=closed]:!animate-none shadow-none rounded border-slate-300">
+      <DropdownMenuContent
+        align="end"
+        className="w-56 data-[state=open]:!animate-none data-[state=closed]:!animate-none shadow-none rounded border-slate-300"
+      >
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-bold leading-none text-black capitalize">
