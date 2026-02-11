@@ -1,11 +1,11 @@
+import { getSessionCookie } from "better-auth/cookies";
+import { headers } from "next/headers";
 import Link from "next/link";
-import { Logo } from "@/components/logo";
 import Account from "@/components/account";
+import { Logo } from "@/components/logo";
 import { NavLinks } from "@/components/nav-links"; // Import the new component
 import { Button } from "@/components/ui/button";
-import { getServerSession } from "@/lib/auth"
-import { getSessionCookie } from "better-auth/cookies"
-import { headers } from "next/headers";
+import { getServerSession } from "@/lib/auth";
 
 export default async function Header() {
   const hasSessionCookie = getSessionCookie(new Headers(await headers()));
@@ -23,15 +23,16 @@ export default async function Header() {
       </div>
       <nav className="flex w-full md:w-auto md:justify-start justify-center items-center">
         {!session && (
-          <Button variant="outline" size="sm" asChild className="rounded shadow-none transition-none border-slate-300 text-slate-600">
-            <Link href={'/login'}>
-              Log in
-            </Link>
+          <Button
+            variant="outline"
+            size="sm"
+            asChild
+            className="rounded shadow-none transition-none border-slate-300 text-slate-600"
+          >
+            <Link href={"/login"}>Log in</Link>
           </Button>
         )}
-        {session && (
-          <Account />
-        )}
+        {session && <Account />}
       </nav>
     </header>
   );
