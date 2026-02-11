@@ -3,10 +3,12 @@ import {
   ArrowUpRight,
   CreditCard,
   Database,
-  Layers,
   LayoutGrid,
   ShieldCheck,
 } from "lucide-react";
+import { GrConnect } from "react-icons/gr";
+import { RiNextjsFill } from "react-icons/ri";
+
 import Link from "next/link";
 
 export default function Home() {
@@ -21,11 +23,11 @@ export default function Home() {
           </h1>
           <p className="text-base text-muted-foreground sm:text-lg">
             Built with Next.js, shadcn/ui, Better Auth, Drizzle ORM, Postgres,
-            and Stripe. A practical open-source starter kit for developers.
+            and Stripe.
           </p>
         </div>
 
-        <section className="mt-12">
+        <section className="mt-16">
           <div className="rounded-none bg-border p-px">
             <div className="grid gap-px rounded-[7px] bg-border sm:grid-cols-2 lg:grid-cols-3">
               <Link
@@ -94,7 +96,7 @@ export default function Home() {
               >
                 <ArrowUpRight className="pointer-events-none absolute right-6 top-6 h-6 w-6 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100" />
                 <div className="flex items-center gap-3 text-xs font-medium text-muted-foreground">
-                  <Layers className="h-6 w-6" />
+                  <GrConnect className="h-6 w-6" />
                   <span>ORM</span>
                 </div>
                 <h3 className="mt-3 text-lg font-semibold">Drizzle ORM</h3>
