@@ -1,8 +1,9 @@
 import "./globals.css";
-import { type ReactNode, Suspense } from "react";
-import Header from "@/components/header";
 import { Outfit, Roboto_Mono } from "next/font/google";
+import { type ReactNode, Suspense } from "react";
 import Footer from "@/components/footer";
+import Header from "@/components/header";
+
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
