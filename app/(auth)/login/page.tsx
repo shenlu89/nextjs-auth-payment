@@ -128,20 +128,24 @@ export default function LoginPage() {
               </Alert>
             ) : null}
 
-            <Button type="submit" className="w-full rounded shadow-none border-slate-300 cursor-pointer" disabled={loading}>
+            <Button
+              type="submit"
+              className="w-full rounded shadow-none border-slate-300 cursor-pointer"
+              disabled={loading}
+            >
               {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               {loading ? "Signing in..." : "Continue"}
             </Button>
           </form>
         </CardContent>
         <CardFooter className="flex flex-col gap-2 text-center text-sm p-0">
-          <div className="text-muted-foreground">
-            No Geman account yet? Please{" "}
+          <p className="text-muted-foreground">
+            Don&apos;t have an account?{" "}
             <Link className="underline underline-offset-4" href="/register">
-              register
-            </Link>{" "}
-            first.
-          </div>
+              Sign up
+            </Link>
+            .
+          </p>
         </CardFooter>
       </Card>
       {/* <SocialLinks /> */}
