@@ -24,8 +24,9 @@ export function NavLinks() {
           <li key={nav.title} className="flex">
             <Link
               href={nav.href}
-              className={`flex md:px-3 px-0 md:py-2 py-0 items-center space-x-1 hover:text-black justify-center outline-none ${isActive ? "text-black" : "text-gray-600"
-                }`}
+              className={`flex md:px-3 px-0 md:py-2 py-0 items-center space-x-1 hover:text-black justify-center outline-none ${
+                isActive ? "text-black" : "text-gray-600"
+              }`}
             >
               <span>{nav.title}</span>
             </Link>
