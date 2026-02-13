@@ -91,7 +91,7 @@ export default function LoginPage() {
             <div className="absolute inset-0 flex items-center">
               <Separator />
             </div>
-            <div className="relative flex justify-center text-xs uppercase">
+            <div className="relative flex justify-center text-sm">
               <span className="bg-card px-2 text-muted-foreground">
                 Or continue with email
               </span>
@@ -106,7 +106,7 @@ export default function LoginPage() {
                 name="email"
                 type="email"
                 required
-                placeholder="name@example.com"
+                placeholder="Enter your email"
                 className="rounded shadow-none border-slate-300"
               />
             </div>
@@ -134,14 +134,14 @@ export default function LoginPage() {
               disabled={loading}
             >
               {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              {loading ? "Signing in..." : "Continue"}
+              {loading ? "Logging in..." : "Log in"}
             </Button>
           </form>
         </CardContent>
         <CardFooter className="flex flex-col gap-2 text-center text-sm p-0">
           <p className="text-muted-foreground">
             Don&apos;t have an account?{" "}
-            <Link className="underline underline-offset-4" href="/register">
+            <Link className="underline underline-offset-4" href="/signup">
               Sign up
             </Link>
             .
