@@ -3,19 +3,12 @@
 import { Github, Loader2 } from "lucide-react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { FcGoogle } from "react-icons/fc";
 // import { SocialLinks } from "@/components/social-links";
 import Link from "@/components/custom-link";
-import { Logo } from "@/components/logo";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
@@ -26,7 +19,9 @@ export default function LoginPage() {
   const pathname = usePathname();
   const callbackURL = searchParams.get("next") || pathname;
   const [loading, setLoading] = useState(false);
-  const [isSigningIn, setIsSigningIn] = useState(false);
+  const [socialLoading, setSocialLoading] = useState<
+    "github" | "google" | null
+  >(null);
   const [errorMsg, setErrorMsg] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -64,9 +59,9 @@ export default function LoginPage() {
             type="button"
             variant="outline"
             className="w-full rounded shadow-none border-slate-300 cursor-pointer"
-            disabled={isSigningIn}
+            disabled={socialLoading !== null}
             onClick={async () => {
-              setIsSigningIn(true);
+              setSocialLoading("github");
               setErrorMsg("");
               try {
                 await signIn.social({
@@ -74,17 +69,44 @@ export default function LoginPage() {
                   callbackURL,
                 });
               } catch {
-                setIsSigningIn(false);
+                setSocialLoading(null);
                 setErrorMsg("Unexpected error, please try again.");
               }
             }}
           >
-            {isSigningIn ? (
+            {socialLoading === "github" ? (
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             ) : (
               <Github className="mr-2 h-4 w-4" />
             )}
             Continue with GitHub
+          </Button>
+
+          <Button
+            type="button"
+            variant="outline"
+            className="w-full rounded shadow-none border-slate-300 cursor-pointer"
+            disabled={socialLoading !== null}
+            onClick={async () => {
+              setSocialLoading("google");
+              setErrorMsg("");
+              try {
+                await signIn.social({
+                  provider: "google",
+                  callbackURL,
+                });
+              } catch {
+                setSocialLoading(null);
+                setErrorMsg("Unexpected error, please try again.");
+              }
+            }}
+          >
+            {socialLoading === "google" ? (
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            ) : (
+              <FcGoogle className="mr-2 h-4 w-4" />
+            )}
+            Continue with Google
           </Button>
 
           <div className="relative">
