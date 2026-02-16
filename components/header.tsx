@@ -15,7 +15,7 @@ export default async function Header() {
       <div className="flex w-full">
         <Link href={"/"} className="flex space-x-1 items-center justify-center">
           <Logo className="md:flex hidden" />
-          <span className="text-xl font-extrabold tracking-tight self-center pr-8 md:flex hidden">
+          <span className="text-2xl font-extrabold tracking-tight self-center pr-8 md:flex hidden">
             OpenSaaSKit
           </span>
         </Link>
