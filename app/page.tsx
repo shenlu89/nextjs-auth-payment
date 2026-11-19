@@ -1,15 +1,6 @@
-import {
-  AppWindow,
-  ArrowUpRight,
-  CreditCard,
-  Database,
-  LayoutGrid,
-  Mail,
-  ShieldCheck,
-  Wind,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import { GrConnect } from "react-icons/gr";
 
 export default function Home() {
   return (
@@ -23,7 +14,7 @@ export default function Home() {
           </h1>
           <p className="text-base text-muted-foreground sm:text-lg">
             Built with Next.js, shadcn/ui, Better Auth, Drizzle ORM, Postgres,
-            Stripe, Tailwind CSS, and Resend.
+            Dodo Payments, Tailwind CSS, and Resend.
           </p>
         </div>
 
@@ -39,7 +30,14 @@ export default function Home() {
               >
                 <ArrowUpRight className="pointer-events-none absolute right-6 top-6 h-6 w-6 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100" />
                 <div className="flex items-center gap-3 text-xs font-medium text-muted-foreground">
-                  <AppWindow className="h-6 w-6" />
+                  <Image
+                    src="/icons/next.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                    unoptimized
+                    className="h-6 w-6"
+                  />
                   <span>Full-stack Framework</span>
                 </div>
                 <h3 className="mt-3 text-lg font-semibold">Next.js</h3>
@@ -58,7 +56,14 @@ export default function Home() {
               >
                 <ArrowUpRight className="pointer-events-none absolute right-6 top-6 h-6 w-6 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100" />
                 <div className="flex items-center gap-3 text-xs font-medium text-muted-foreground">
-                  <Wind className="h-6 w-6" />
+                  <Image
+                    src="/icons/tailwind.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                    unoptimized
+                    className="h-6 w-6"
+                  />
                   <span>Styling</span>
                 </div>
                 <h3 className="mt-3 text-lg font-semibold">Tailwind CSS</h3>
@@ -77,7 +82,14 @@ export default function Home() {
               >
                 <ArrowUpRight className="pointer-events-none absolute right-6 top-6 h-6 w-6 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100" />
                 <div className="flex items-center gap-3 text-xs font-medium text-muted-foreground">
-                  <LayoutGrid className="h-6 w-6" />
+                  <Image
+                    src="/icons/shadcn.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                    unoptimized
+                    className="h-6 w-6"
+                  />
                   <span>UI Components</span>
                 </div>
                 <h3 className="mt-3 text-lg font-semibold">shadcn/ui</h3>
@@ -96,7 +108,16 @@ export default function Home() {
               >
                 <ArrowUpRight className="pointer-events-none absolute right-6 top-6 h-6 w-6 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100" />
                 <div className="flex items-center gap-3 text-xs font-medium text-muted-foreground">
-                  <ShieldCheck className="h-6 w-6" />
+                  <span className="flex h-6 w-6 items-center justify-center rounded bg-neutral-900">
+                    <Image
+                      src="/icons/better-auth.svg"
+                      alt=""
+                      width={16}
+                      height={16}
+                      unoptimized
+                      className="h-4 w-4"
+                    />
+                  </span>
                   <span>Authentication</span>
                 </div>
                 <h3 className="mt-3 text-lg font-semibold">Better Auth</h3>
@@ -115,7 +136,16 @@ export default function Home() {
               >
                 <ArrowUpRight className="pointer-events-none absolute right-6 top-6 h-6 w-6 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100" />
                 <div className="flex items-center gap-3 text-xs font-medium text-muted-foreground">
-                  <GrConnect className="h-6 w-6" />
+                  <span className="flex h-6 w-6 items-center justify-center rounded bg-neutral-900">
+                    <Image
+                      src="/icons/drizzle.svg"
+                      alt=""
+                      width={16}
+                      height={16}
+                      unoptimized
+                      className="h-4 w-4"
+                    />
+                  </span>
                   <span>ORM</span>
                 </div>
                 <h3 className="mt-3 text-lg font-semibold">Drizzle ORM</h3>
@@ -134,7 +164,14 @@ export default function Home() {
               >
                 <ArrowUpRight className="pointer-events-none absolute right-6 top-6 h-6 w-6 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100" />
                 <div className="flex items-center gap-3 text-xs font-medium text-muted-foreground">
-                  <Database className="h-6 w-6" />
+                  <Image
+                    src="/icons/postgres.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                    unoptimized
+                    className="h-6 w-6"
+                  />
                   <span>Database</span>
                 </div>
                 <h3 className="mt-3 text-lg font-semibold">Postgres</h3>
@@ -145,21 +182,28 @@ export default function Home() {
               </Link>
 
               <Link
-                href="https://stripe.com/"
+                href="https://dodopayments.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Stripe documentation"
+                aria-label="Dodo Payments documentation"
                 className="group relative bg-card p-6 hover:bg-muted/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
               >
                 <ArrowUpRight className="pointer-events-none absolute right-6 top-6 h-6 w-6 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100" />
                 <div className="flex items-center gap-3 text-xs font-medium text-muted-foreground">
-                  <CreditCard className="h-6 w-6" />
+                  <Image
+                    src="/icons/dodo.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                    unoptimized
+                    className="h-6 w-6"
+                  />
                   <span>Payments</span>
                 </div>
-                <h3 className="mt-3 text-lg font-semibold">Stripe</h3>
+                <h3 className="mt-3 text-lg font-semibold">Dodo Payments</h3>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Subscription billing, checkout, and webhooks to power payments
-                  end-to-end.
+                  Payment infrastructure for SaaS—subscriptions, one-time
+                  payments, checkout, and webhooks end-to-end.
                 </p>
               </Link>
 
@@ -172,7 +216,14 @@ export default function Home() {
               >
                 <ArrowUpRight className="pointer-events-none absolute right-6 top-6 h-6 w-6 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100" />
                 <div className="flex items-center gap-3 text-xs font-medium text-muted-foreground">
-                  <Mail className="h-6 w-6" />
+                  <Image
+                    src="/icons/resend.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                    unoptimized
+                    className="h-6 w-6"
+                  />
                   <span>Email</span>
                 </div>
                 <h3 className="mt-3 text-lg font-semibold">Resend</h3>
